@@ -1,0 +1,357 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+        <head>
+                <meta http-equiv = "content-type" content = "text/html; charset = UTF-8">
+                <title>CGI.lua</title>
+                <style type = "text/css">
+                <!--
+                
+                body 
+                { 
+                        color: black; 
+                        background-color: white; 
+                        font-family: serif; 
+                        margin: 75px 50px 50px 75px; 
+                }
+                
+                h1 { font-family: sans-serif; }
+                h2 { font-family: sans-serif; }
+                h3 { font-family: sans-serif; margin-bottom: 0px; padding-bottom: 0px; }
+                
+                p { font-family: serif; }
+                
+                .indent { margin-left: 50px }
+                
+                -->
+                </style>
+        </head>
+        <body>
+                <h1>CGI.lua</h1>
+                
+                <h2>Description</h2>
+                
+                <h2>Download</h2>
+                
+                <a name = "CGI"></a>
+                <h2>CGI</h2>
+
+
+                <div class = "indent">
+                
+
+                <a name = "CGI.log"></a>
+                <h3>log</h3>
+                <code><i>function</i> CGI:log()</code>
+                <br><br>
+
+                <a name = "CGI.name"></a>
+                <h3>name</h3>
+                <code><i>string</i> CGI:name()</code>
+                <br><br>
+
+                <a name = "CGI.path"></a>
+                <h3>path</h3>
+                <code><i>string</i> CGI:path()</code>
+                <br><br>
+
+                <a name = "CGI.print"></a>
+                <h3>print</h3>
+                <code><i>function</i> CGI:print()</code>
+                <br><br>
+
+                <a name = "CGI.request"></a>
+                <h3>request</h3>
+                <code><i><a href = "#Request">Request</a></i> CGI:request()</code>
+                <br><br>
+
+                <a name = "CGI.response"></a>
+                <h3>response</h3>
+                <code><i><a href = "#Response">Response</a></i> CGI:response()</code>
+                <br><br>
+
+                <a name = "CGI.run"></a>
+                <h3>run</h3>
+                <code><i>self</i> CGI:run( <i>table</i> someMappings )</code>
+                <br><br>
+
+                <a name = "CGI.version"></a>
+                <h3>version</h3>
+                <code><i>string</i> CGI:version()</code>
+                <br><br>
+
+                </div>
+                
+                <a name = "Request"></a>
+                <h2>Request</h2>
+
+                <div class = "indent">
+                
+                <a name = "Request.address"></a>
+                <h3>address</h3>
+                <code><i>string</i> CGI:request():address()</code>
+                <p>
+                Returns the IP address of the client that sent the request. Same as the value of the CGI variable REMOTE_ADDR.
+                <br><br>
+
+                <a name = "Request.authentication"></a>
+                <h3>authentication</h3>
+                <code><i>string</i> CGI:request():authentication()</code>
+                <p>
+                Returns the name of the authentication scheme. Same as the value of the CGI variable AUTH_TYPE.
+                <br><br>
+                
+                <a name = "Request.contentLength"></a>
+                <h3>contentLength</h3>
+                <code><i>number</i> CGI:request():contentLength()</code>
+                <p>
+                Returns the length of the request content. Same as the value of the CGI variable CONTENT_LENGTH.
+                <br><br>
+                
+                <a name = "Request.contentType"></a>
+                <h3>contentType</h3>
+                <code><i>string</i> CGI:request():contentType()</code>
+                <p>
+                Returns the MIME type of the request. Same as the value of the CGI variable CONTENT_TYPE.
+                <br><br>
+
+                <a name = "Request.cookie"></a>
+                <h3>cookie</h3>
+                <code><i>string</i> CGI:request():cookie( <i>string</i> aKey )</code>
+                <br><br>
+                
+                <a name = "Request.cookies"></a>
+                <h3>cookies</h3>
+                <code><i>table</i> CGI:request():cookies()</code>
+                <br><br>
+
+                <a name = "Request.header"></a>
+                <h3>header</h3>
+                <code><i>string</i> CGI:request():header( <i>string</i> aKey )</code>
+                <p>
+                Returns the value of the specified request header as a <code>string</code>. If the request did not include a header of the specified name, this method returns <code>nil</code>. The header name is case insensitive.
+                <br><br>
+                
+                <a name = "Request.method"></a>
+                <h3>method</h3>
+                <code><i>string</i> CGI:request():method()</code>
+                <p>
+                Returns the name of the HTTP method with which this request was made, for example, GET, POST, or PUT. Same as the value of the CGI variable REQUEST_METHOD.
+                <br><br>
+                
+                <a name = "Request.parameter"></a>
+                <h3>parameter</h3>
+                <code><i>string</i> CGI:request():parameter( <i>string</i> aKey )</code>
+                <p>
+                Returns the value of a request parameter as a <code>string</code>, or <code>nil</code> if the parameter does not exist. For HTTP, parameters are contained in the query string or posted form data.
+                <br><br>
+
+                <a name = "Request.parameters"></a>
+                <h3>parameters</h3>
+                <code><i>table</i> CGI:request():parameters()</code>
+                <br><br>
+
+                <a name = "Request.url"></a>
+                <h3>url</h3>
+                <code><i><a href = "#URL">URL</a></i> CGI:request():url()</code>
+                <br><br>
+
+                <a name = "Request.user"></a>
+                <h3>user</h3>
+                <code><i>string</i> CGI:request():user()</code>
+                <p>
+                Returns the login of the user making this request. Same as the value of the CGI variable REMOTE_USER.
+                <br><br>
+                
+                <a name = "Request.version"></a>
+                <h3>version</h3>
+                <code><i>string</i> CGI:request():version()</code>
+                <p>
+                Returns the name and version of the protocol the request uses, for example, HTTP/1.1. Same as the value of the CGI variable SERVER_PROTOCOL.
+                <br><br>
+
+                </div>
+                
+                <a name = "URL"></a>
+                <h2>URL</h2>
+
+                <div class = "indent">
+
+                <a name = "URL.decode"></a>
+                <h3>decode</h3>
+                <code><i>string</i> CGI:request():url():decode()</code>
+                <br><br>
+
+                <a name = "URL.decodeParameters"></a>
+                <h3>decodeParameters</h3>
+                <code><i>table</i> CGI:request():url():decodeParameters()</code>
+                <br><br>
+                
+                <a name = "URL.encode"></a>
+                <h3>encode</h3>
+                <code><i>string</i> CGI:request():url():encode()</code>
+                <br><br>
+
+                <a name = "URL.encodeParameters"></a>
+                <h3>encodeParameters</h3>
+                <code><i>string</i> CGI:request():url():encodeParameters()</code>
+                <br><br>
+
+                <a name = "URL.host"></a>
+                <h3>host</h3>
+                <code><i>string</i> CGI:request():url():host()</code>
+                <p>
+                Returns the host name of the server that received the request. Same as the value of the CGI variable SERVER_NAME.
+                <br><br>
+
+                <a name = "URL.path"></a>
+                <h3>path</h3>
+                <code><i>string</i> CGI:request():url():path()</code>
+                <p>
+                Returns the path of this request's URL. Same as the value of the CGI variable PATH_INFO.
+                <br><br>
+
+                <a name = "URL.port"></a>
+                <h3>port</h3>
+                <code><i>number</i> CGI:request():url():port()</code>
+                <p>
+                Returns the port number on which this request was received. Same as the value of the CGI variable SERVER_PORT.
+                <br><br>
+
+                <a name = "URL.queries"></a>
+                <h3>queries</h3>
+                <code><i>table</i> CGI:request():url():queries()</code>
+                <br><br>
+
+                <a name = "URL.query"></a>
+                <h3>query</h3>
+                <code><i>string</i> CGI:request():url():query()</code>
+                <p>
+                Returns the query string that is contained in the request URL after the path. Same as the value of the CGI variable QUERY_STRING.
+                <br><br>
+
+                <a name = "URL.scheme"></a>
+                <h3>scheme</h3>
+                <code><i>string</i> CGI:request():url():scheme()</code>
+                <p>
+                Returns the name of the scheme used to make this request, for example, http, https, or ftp. 
+                <br><br>
+
+                </div>
+                
+                <a name = "Response"></a>
+                <h2>Response</h2>
+
+                <div class = "indent">
+                
+                <a name = "Response.contentType"></a>
+                <h3>contentType</h3>
+                <code><i>string</i> CGI:response():contentType()</code>
+                <br><br>
+
+                <a name = "Response.setContentType"></a>
+                <h3>setContentType</h3>
+                <code><i>self</i> CGI:response():setContentType()</code>
+                <br><br>
+
+                <a name = "Response.cookie"></a>
+                <h3>cookie</h3>
+                <code><i>string</i> CGI:response():cookie( <i>string</i> aKey )</code>
+                <br><br>
+
+                <a name = "Response.setCookie"></a>
+                <h3>setCookie</h3>
+                <code><i>self</i> CGI:response():setCookie( <i>string</i> aKey, <i>any</i> aValue [, <i>table</i> someOptions ] )</code>
+                <br><br>
+
+                <a name = "Response.cookies"></a>
+                <h3>cookies</h3>
+                <code><i>table</i> CGI:response():cookies()</code>
+                <br><br>
+
+                <a name = "Response.encoding"></a>
+                <h3>encoding</h3>
+                <code><i>string</i> CGI:response():encoding()</code>
+                <p>
+                Returns the name of the character encoding used in the body of this response. Defaults to UTF-8.
+                <br><br>
+
+                <a name = "Response.header"></a>
+                <h3>header</h3>
+                <code><i>string</i> CGI:response():header( <i>string</i> aKey )</code>
+                <br><br>
+
+                <a name = "Response.setHeader"></a>
+                <h3>setHeader</h3>
+                <code><i>self</i> CGI:response():setHeader( <i>string</i> aKey, <i>any</i> aValue )</code>
+                <br><br>
+
+                <a name = "Response.headers"></a>
+                <h3>headers</h3>
+                <code><i>table</i> CGI:response():headers()</code>
+                <br><br>
+
+                <a name = "Response.server"></a>
+                <h3>server</h3>
+                <code><i>string</i> CGI:response():server()</code>
+                <br><br>
+
+                <a name = "Response.status"></a>
+                <h3>status</h3>
+                <code><i>number, string</i> CGI:response():status()</code>
+                <br><br>
+
+                <a name = "Response.setStatus"></a>
+                <h3>setStatus</h3>
+                <code><i>self</i> CGI:response():setStatus( <i>number</i> aValue, <i>string</i> aDescription )</code>
+                <br><br>
+
+                <a name = "Response.write"></a>
+                <h3>write</h3>
+                <code><i>self</i> CGI:response():write( <i>string</i> ... )</code>
+                <br><br>
+
+                </div>
+                
+                <a name = "string"></a>
+                <h2>string</h2>
+
+                <div class = "indent">
+
+                <a name = "string.encode"></a>
+                <h3>encode</h3>
+                <code><i>string</i> string.encode( <i>string</i> aValue )</code>
+                <br><br>
+
+                </div>
+
+                <a name = "License"></a>
+                <h2>License</h2>
+
+                <div class = "indent">
+
+                <p>
+                Copyright © 2006 Raphaël Szwarc
+                <p>
+                This software is provided 'as-is', without any express or implied warranty. 
+                In no event will the author be held liable for any damages arising from 
+                the use of this software.
+                <p>
+                Permission is granted to anyone to use this software for any purpose, 
+                including commercial applications, and to alter it and 
+                redistribute it freely, subject to the following restrictions:
+                <p>
+                1. The origin of this software must not be misrepresented; 
+                you must not claim that you wrote the original software. 
+                If you use this software in a product, an acknowledgment
+                in the product documentation would be appreciated but is not required.
+                <p>
+                2. Altered source versions must be plainly marked as such, 
+                and must not be  misrepresented as being the original software.
+                <p>
+                3. This notice may not be removed or altered from any source distribution.
+
+                </div>
+
+        </body>
+</html>
